@@ -120,23 +120,25 @@ T ListLinked<T>::remove(int pos) {
         throw out_of_range("Posicion no valida");
     
     }
-    
+    Node<T>* eliminado;
     T dato;
     if(pos==0){
     
-	    T eliminado = first->data;
-	    T dato= eliminado;
+	    eliminado = first;
+	    dato= eliminado->data;
+	    first=first->next;
 	    delete eliminado;
     }else{
 
 	Node<T>* actual = first;
 	
- 	for (int i = 0; i < pos; i++) {
+ 	for (int i = 0; i < pos-1; i++) {
 	actual=actual->next;
     	}
 
-    	T eliminado = actual->data;
-    	dato = eliminado;
+    	eliminado = actual->next;
+    	dato = eliminado->data;
+	actual->next=eliminado->next;
     	delete eliminado;
     }
 
@@ -201,7 +203,7 @@ T ListLinked<T>::operator[] (int pos) {
 
         if(pos<0 || pos>=n){
 
-                throw std::out_of_range("POsicion no valida");
+                throw std::out_of_range("Posicion invalida");
 
         }
 	
@@ -221,14 +223,14 @@ T ListLinked<T>::operator[] (int pos) {
 template <typename T>
 
 ostream& operator<<(ostream &out, ListLinked<T> &list){
-
+	out<<"List => [";
 	Node<T>* actual=list.first;
 
         for(int i=0; i<list.n; i++){ //me pasan la lisa ya como objeto
-                out<<actual->data<<" ";
+                out<<"\n "<<actual->data;
 		actual=actual->next;
         }
-
+	out << "\n]";
         return out;
 }
 
