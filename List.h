@@ -17,7 +17,7 @@ class List{
                 virtual int search(T e)=0;
                 virtual bool empty()=0;
                 virtual int size()=0;
-                virtual ~List(); //esta no es virtual pura
+                virtual ~List() = default; //esta no es virtual pura, así genera automáticamente el destructor
 
 };
 
