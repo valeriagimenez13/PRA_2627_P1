@@ -1,6 +1,7 @@
-#include <iostream>
+
 #ifndef NODE_H
 #define NODE_H
+#include<ostream>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ class Node{
 		T data;
 		Node<T>* next; //puntero al siguiente
 		
-		//Atributos privados
+		//metodos (constructor y el que imprime por pantalla)
 		Node(T data, Node<T>* next=nullptr);
 		friend ostream& operator<< <T>(ostream &out, const Node<T> &node); //imprime el nodo por pantallla
 
@@ -35,14 +36,14 @@ Node<T>::Node (T data, Node<T>* next){
 
 }
 
+
 template <typename T>
 ostream& operator<<(ostream &out, const Node<T> &node){
 
-	out<<node.data; //imprime el dato del nodo
-	return out;
+        out<<node.data; //imprime el dato del nodo
+        return out;
 
 
 }
-
 
 #endif
