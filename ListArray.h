@@ -1,7 +1,7 @@
 #ifndef LISTARRAY_H
 #define LISTARRAY_H
 #include<ostream>
-#include<stdexpect>
+#include<stdexcept>
 #include "List.h"
 
 using namespace std;
